@@ -4,10 +4,10 @@
     </head>
     <body>
         <?php
-        $counter_file = '/TextCouter/count.txt';
+        $counter_file = "count.txt";
         $counter_lenght = 8;
 
-        $fp = fopen($counter_file, 'r+'); // count.txtファイルをfopenで開く
+        $fp = fopen($counter_file, "r+") or die("失敗した"); // count.txtファイルをfopenで開く
 
         if($fp){
             if(flock($fp, LOCK_EX)){
@@ -25,10 +25,8 @@
 
         fclose($fp);
 
-        print('ページの閲覧回数'.$counter);
+        print('ページの閲覧回数：'.$counter);
 
         ?>
     </body>
 </html>
-
-
