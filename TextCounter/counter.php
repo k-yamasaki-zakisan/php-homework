@@ -1,8 +1,8 @@
 <html>
     <head>
-        <title>F5 Counter</title>
+        <title>access_counter</title>
         <!-- 参考サイト：カウンター https://www.javadrive.jp/php/sample/accesscounter/index1.html -->
-        <!-- 参考サイト：ログ https://ysklog.net/php/1264.html -->
+        <!-- 参考サイト：ログ https://ysklog.net/php/1264.html  https://techacademy.jp/magazine/12330-->
     </head>
     <body>
         <?php //閲覧数カウンター用のスクリプト
@@ -30,20 +30,18 @@
         ?>
 
         <?php //アクセスログ保存用のスクリプト
-        $USER_AGENT = $_SERVER['HTTP_USER_AGENT']; //ブラウザの種類
-        $IP_ADDRESS = $_SERVER['REMOTE_ADDR']; //IPアドレス
+        $USER_AGENT = $_SERVER["HTTP_USER_AGENT"]; //ブラウザの種類
+        $IP_ADDRESS = $_SERVER["REMOTE_ADDR"]; //IPアドレス
         $ACCCESS_DATE = date("Y/m/d H:i:s"); //アクセス時刻
 
-        $log_file = "./log.csv";//ログファイル名
-
-        $new_log = [[$USER_AGENT, $IP_ADDRESS, $ACCCESS_DATE]];
-
-        $fpcsv = fopen($log_file, 'a');
+        $log_file = "./access_log.csv"; //ログファイル名
+        $new_log = [[$USER_AGENT, $IP_ADDRESS, $ACCCESS_DATE]]; //csv保存用の連想配列
+        $fpcsv = fopen($log_file, "a");
 
         if($fpcsv){
             if(flock($fpcsv, LOCK_EX)){
                 foreach($new_log as $line){
-                    fputcsv($fpcsv, $line, "\t");
+                    fputcsv($fpcsv, $line);
                 }
                 flock($fp, LOCK_UN);
             }
@@ -53,3 +51,5 @@
 
     </body>
 </html>
+
+http://localhost:4567/TextCounter/counter.php
