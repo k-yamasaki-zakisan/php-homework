@@ -50,6 +50,6 @@
         ?>
 
     </body>
+    <!-- http://localhost:4567/TextCounter/counter.php -->
 </html>
 
-http://localhost:4567/TextCounter/counter.php
