@@ -14,7 +14,6 @@
         $dsn = "mysql:dbname=board; host=localhost";
         $username = "root";
         $password = "zxcvbnma";
-        $dbname = "board";
         $attr_emulate_prepares = array(PDO::ATTR_EMULATE_PREPARES => false);
 
         ini_set("display_errors", On);
