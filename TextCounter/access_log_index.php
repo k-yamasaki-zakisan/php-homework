@@ -8,7 +8,7 @@
         $log_file = "./access_log.csv";
         $handle = fopen($log_file,"r");
         if ($handle !==FALSE) {
-            echo "<table>\n";
+            echo "<table border=1>\n";
             while(($logs_data = fgetcsv($handle, 1000, ",")) !== FALSE ){
                 echo "\t<tr>\n";
                 for($i = 0; $i < count($logs_data); $i++) {
