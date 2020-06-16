@@ -29,9 +29,26 @@
         }
 
         $records = $db ->query('SELECT * FROM post');
+        echo "<table border=1>\n";
+        echo "<tr>\n";
+        echo "<th>ID</th>\n";
+        echo "<th>名前</th>\n";
+        echo "<th>メールアドレス</th>\n";
+        echo "<th>タイトル</th>\n";
+        echo "<th>内容</th>\n";
+        echo "<th>投稿時間</th>\n";
+        echo "</tr>\n";
         while ($record = $records -> fetch()) {
-            print($record['name']."\n");
+            echo "\t<tr>\n";
+            for($i = 0; $i < 6; $i++) {
+                echo "\t\t<td>{$record[$i]}</td>\t";
+            }
+            echo "\t</tr>\n";
         }
+        echo "</table>\n";
+
+        // print($record['name']."\n");
+
         ?>
     </body>
 </html>
