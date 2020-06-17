@@ -37,12 +37,14 @@
         echo "<th>タイトル</th>\n";
         echo "<th>内容</th>\n";
         echo "<th>投稿時間</th>\n";
+        echo "<th>その他</th>\n";
         echo "</tr>\n";
         while ($record = $records -> fetch()) {
             echo "\t<tr>\n";
             for($i = 0; $i < 6; $i++) {
                 echo "\t\t<td>{$record[$i]}</td>\t";
             }
+            echo "\t\t<td><a href="."board_delete.php?id=".$record[0].">削除する</a></td>\t";
             echo "\t</tr>\n";
         }
         echo "</table>\n";
