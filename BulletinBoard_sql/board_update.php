@@ -30,12 +30,12 @@
 
         if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
-            $records = $db ->query('SELECT * FROM post');
+            $records = $db ->query('SELECT * FROM post WHERE id="'.$id.'"');
             $record = $records -> fetch();
         }
         ?>
 
-        <form action="" method="post">
+        <form action="board_update_do.php" method="post">
             <table>
                 <input type="hidden" name="id" method="post" value="<?php print($record['id'])?>">
                 <tr><th width="150">名前: <input type="text" name="name" value="<?php print($record['name'])?>"></th></tr>

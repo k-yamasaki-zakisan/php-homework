@@ -27,7 +27,7 @@
             header("Location: ./index.php");
         }
         catch(PODException $e) {
-            echo "DB接続失敗" .$e->getMessage() ."\n";
+            echo "投稿失敗" .$e->getMessage() ."\n";
             die();
         }
         ?>
