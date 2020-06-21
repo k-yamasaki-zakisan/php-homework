@@ -14,18 +14,18 @@
         die();
     }
 
-    if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
+    if (isset($_POST['id']) && is_numeric($_POST['id'])) {
         try {
-            $id = $_REQUEST['id'];
+            $id = $_POST['id'];
             $db -> exec('UPDATE post SET name="'.$_POST['name'].'", 
-                                                    email="'.$_POST['email'].'",
-                                                    title="'.$_POST['title'].'",
-                                                    content="' .$_POST['content'].'",
-                                                    WHERE id="'.$id.'"');
-            // header("Location: ./index.php");
+                                        email="'.$_POST['email'].'",
+                                        title="'.$_POST['title'].'",
+                                        content="' .$_POST['content'].'"
+                                        WHERE id="'.$id.'"');
+            header("Location: ./index.php");
         }
         catch(PODException $e) {
-            echo "編集失敗接続失敗" .$e->getMessage() ."\n";
+            echo "編集失敗" .$e->getMessage() ."\n";
             die();
         }
     }

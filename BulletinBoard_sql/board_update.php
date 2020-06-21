@@ -28,8 +28,8 @@
             die();
         }
 
-        if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $id = $_GET['id'];
             $records = $db ->query('SELECT * FROM post WHERE id="'.$id.'"');
             $record = $records -> fetch();
         }

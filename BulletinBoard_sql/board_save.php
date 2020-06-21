@@ -16,7 +16,7 @@
         ini_set("display_errors", On);
         error_reporting(E_ALL);
 
-        // prepare, executeのリファクタリングする必要あり（セキュリティ関連）
+        // prepare, executeでリファクタリングする必要あり（セキュリティ関連）
         try {
             $db = new PDO($dsn, $username, $password, $attr_emulate_prepares);
             $db -> exec('INSERT INTO post SET name="' .$_POST['name'].'",
