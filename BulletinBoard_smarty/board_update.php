@@ -1,24 +1,20 @@
 <?php
-
 //libs ディレクトリへの絶対パスを指定
 define('SMARTY_DIR', 'libs/');
 //ファイルの読み込み
 require_once(SMARTY_DIR . 'Smarty.class.php');
 
-//テスト
-$name = 'okutani';
-$obj = new StdClass();
-$obj->hello = 'こんにちは';
-$smarty = new Smarty();
-$smarty->assign('name', $name);
-$smarty->assign('obj', $obj);
-
 //DBコネクト
 require('db_connect.php');
 
-//表示する変数
-$records = $db ->query('SELECT * FROM post');
-$smarty->assign('records', $records);
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = $_GET['id'];
+    $smarty = new Smarty();
+    $records = $db ->query('SELECT * FROM post WHERE id="'.$id.'"');
+    $record = $records -> fetch();
+    $smarty->assign('record', $record);
+
+}
 
 ?>
 
@@ -31,7 +27,7 @@ $smarty->assign('records', $records);
     </head>
     <body>
         <?php
-        $smarty->display('index.html');
+        $smarty->display('board_update.html');
         ?>
     </body>
 </html>

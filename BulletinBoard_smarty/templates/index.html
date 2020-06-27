@@ -1,0 +1,33 @@
+<!-- やあ、{$obj->hello} {$name} -->
+
+<h1>掲示板一覧</h1>
+<a href="/BulletinBoard_smarty/templates/board_input.html">投稿フォーム</a>
+<br><br>
+
+<table border=1>
+     <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>タイトル</th>
+          <th>内容</th>
+          <th>投稿時間</th>
+          <th>その他1</th>
+          <th>その他2</th>
+     </tr>
+
+     {foreach from=$records item="record"}
+     <tr>
+          <td>{$record.id}</td>
+          <td>{$record.name}</td>
+          <td>{$record.email}</td>
+          <td>{$record.title}</td>
+          <td>{$record.content}</td>
+          <td>{$record.created_at}</td>
+          <td><a href="./board_update.php?id={$record[0]}">編集する</a></td>
+          <td><a href="./board_delete.php?id={$record[0]}">削除する</a></td>
+     </tr>
+     {/foreach}
+</table>
+
+     
