@@ -1,0 +1,1 @@
+やあ、{$obj->hello} {$name}
