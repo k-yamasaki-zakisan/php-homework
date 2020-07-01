@@ -35,7 +35,7 @@
         $ACCCESS_DATE = date("Y/m/d H:i:s"); //アクセス時刻
 
         $log_file = "./access_log.csv"; //ログファイル名
-        $new_log = [[$USER_AGENT, $IP_ADDRESS, $ACCCESS_DATE]]; //csv保存用の連想配列
+        $new_log = [[$USER_AGENT, $IP_ADDRESS, $ACCCESS_DATE]]; //csv保存用の配列
         $fpcsv = fopen($log_file, "a");
 
         if($fpcsv){
