@@ -43,7 +43,7 @@
                 foreach($new_log as $line){
                     fputcsv($fpcsv, $line);
                 }
-                flock($fp, LOCK_UN);
+                flock($fpcsv, LOCK_UN);
             }
         }
         fclose($fpcsv);
